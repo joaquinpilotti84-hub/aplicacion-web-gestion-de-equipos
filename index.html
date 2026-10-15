@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Recursos Informáticos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestión de Inventario Informático</h1>
+    </header>
+
+    <main>
+        <!-- PANEL DE INDICADORES (KPIs) -->
+        <section class="dashboard">
+            <div class="card">Total Equipos: <span id="total-equipos">0</span></div>
+            <div class="card">Disponibles: <span id="equipos-disponibles">0</span></div>
+            <div class="card">En Mantenimiento: <span id="equipos-mantenimiento">0</span></div>
+        </section>
+
+        <!-- FORMULARIO DE REGISTRO -->
+        <section class="form-section">
+            <h2>Registrar / Editar Equipo</h2>
+            <form id="form-equipo">
+                <input type="hidden" id="edit-index">
+                <div class="form-group">
+                    <label for="serial">Número de Serie / Código:</label>
+                    <input type="text" id="serial" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre del Equipo:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" required>
+                        <option value="Notebook">Notebook</option>
+                        <option value="Escritorio">PC de Escritorio</option>
+                        <option value="Proyector">Proyector</option>
+                        <option value="Impresora">Impresora</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <select id="estado" required>
+                        <option value="Disponible">Disponible</option>
+                        <option value="En Mantenimiento">En Mantenimiento</option>
+                        <option value="De Baja">De Baja</option>
+                    </select>
+                </div>
+                <button type="submit" id="btn-guardar">Guardar Equipo</button>
+            </form>
+        </section>
+
+        <!-- FILTROS Y BUSQUEDA -->
+        <section class="filters-section">
+            <input type="text" id="buscar" placeholder="Buscar por código o nombre...">
+            <select id="filtrar-estado">
+                <option value="Todos">Todos los estados</option>
+                <option value="Disponible">Disponible</option>
+                <option value="En Mantenimiento">En Mantenimiento</option>
+                <option value="De Baja">De Baja</option>
+            </select>
+        </section>
+
+        <!-- TABLA DINÁMICA -->
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código/Serial</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-equipos">
+                    <!-- Se llena dinámicamente con JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

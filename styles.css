@@ -1,0 +1,327 @@
+:root {
+    color-scheme: light;
+    --ink: #343331;
+    --muted: #77736e;
+    --line: #dedbd6;
+    --paper: #f4f2ef;
+    --surface: #ffffff;
+    --stone: #e8e5e0;
+    --brown: #725846;
+    --brown-dark: #4d3b2e;
+    --brown-soft: #eee7df;
+    --green: #476b55;
+    --green-soft: #e5eee8;
+    --amber: #91642e;
+    --amber-soft: #f4ecdf;
+    --red: #89524b;
+    --red-soft: #f3e8e5;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 9% 0%, rgba(114, 88, 70, 0.10), transparent 34rem),
+        linear-gradient(145deg, #f5f3f0 0%, #eeece8 55%, #e9e6e1 100%);
+}
+
+header {
+    padding: 30px max(24px, calc((100vw - 1120px) / 2));
+    color: #fff;
+    background: linear-gradient(112deg, #4b4a47, #665b50 68%, #725846);
+    border-bottom: 4px solid #9b8168;
+}
+
+header h1 {
+    max-width: 1120px;
+    margin: 0 auto;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.45rem, 3vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+main {
+    width: min(1120px, calc(100% - 40px));
+    margin: 32px auto 56px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    min-height: 96px;
+    padding: 20px 22px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--brown);
+    box-shadow: 0 5px 16px rgba(52, 51, 49, 0.045);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card:nth-child(2) {
+    border-top-color: var(--green);
+}
+
+.card:nth-child(3) {
+    border-top-color: var(--amber);
+}
+
+.card span {
+    display: block;
+    margin-top: 8px;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.form-section,
+.table-section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: 0 5px 18px rgba(52, 51, 49, 0.045);
+}
+
+.form-section {
+    padding: 24px;
+    border-left: 4px solid var(--brown);
+}
+
+h2 {
+    margin: 0 0 20px;
+    color: var(--brown-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+#form-equipo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    color: #514d48;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    color: var(--ink);
+    background: #fbfaf9;
+    border: 1px solid #d5d0c9;
+    border-radius: 3px;
+    font: inherit;
+    font-size: 0.93rem;
+}
+
+input::placeholder {
+    color: #8b8781;
+}
+
+input:focus,
+select:focus {
+    outline: 3px solid rgba(114, 88, 70, 0.18);
+    border-color: var(--brown);
+}
+
+#btn-guardar {
+    align-self: end;
+    justify-self: start;
+    min-height: 44px;
+    padding: 10px 20px;
+    color: #fff;
+    background: var(--brown-dark);
+    border: 1px solid var(--brown-dark);
+    border-radius: 3px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+
+#btn-guardar:hover {
+    background: var(--brown);
+    transform: translateY(-1px);
+}
+
+.filters-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+    gap: 12px;
+    margin: 24px 0 14px;
+}
+
+.table-section {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    color: #fff;
+    background: #5a554f;
+}
+
+th,
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+}
+
+th {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+td {
+    color: #484541;
+    font-size: 0.9rem;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8f7f5;
+}
+
+tbody tr:hover {
+    background: #f1ede8;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge.disponible {
+    color: var(--green);
+    background: var(--green-soft);
+}
+
+.badge.en-mantenimiento {
+    color: var(--amber);
+    background: var(--amber-soft);
+}
+
+.badge.de-baja {
+    color: var(--red);
+    background: var(--red-soft);
+}
+
+.btn-edit,
+.btn-delete {
+    min-height: 34px;
+    margin: 2px 5px 2px 0;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-edit {
+    color: var(--brown-dark);
+    background: var(--brown-soft);
+    border-color: #ded1c3;
+}
+
+.btn-delete {
+    color: #7e4740;
+    background: var(--red-soft);
+    border-color: #e6d0cb;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    filter: brightness(0.96);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(114, 88, 70, 0.35);
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    header {
+        padding: 24px 20px;
+    }
+
+    main {
+        width: min(100% - 28px, 520px);
+        margin-top: 20px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        min-height: 78px;
+        padding: 14px 17px;
+    }
+
+    .card span {
+        display: inline-block;
+        margin: 0 0 0 8px;
+        font-size: 1.35rem;
+        vertical-align: middle;
+    }
+
+    .form-section {
+        padding: 19px 16px;
+    }
+
+    #form-equipo,
+    .filters-section {
+        grid-template-columns: 1fr;
+    }
+
+    #btn-guardar {
+        width: 100%;
+    }
+
+    .filters-section {
+        gap: 9px;
+    }
+}
